@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration page</title>
+</head>
+<body>
+<h1>Registration page</h1>
+
+<h2> !!!  user already exists or <br>
+      email address is incorrect  !!!</h2>
+<form th:action="@{/register}" method="post">
+    <label for="username">Username = e-mail</label>:
+    <input type="email" id="username" name="username"/> <br />
+    <label for="password">Password</label>:
+    <input type="password" id="password" name="password" /> <br />
+
+    <label>what role do you want to play</label>:
+    <select name="role">
+        <option th:each="myRola : ${T(pl.com.nur.springsecurityemailverification.model.AppRole).values()}"
+                th:value="${myRola}" th:text="${myRola.name}">
+        </option>
+    </select>
+
+    <input type="submit" value="Sing Up" />
+</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+</head>
+<body>
+<h1>Pojazdy</h1>
+Każdy może zobaczyć <br>
+User może dodawać<br>
+Admin może dodawać i kasować (admin Wojtek haslo 1234)<br>
+<br>
+<a href="/login"> Logowanie </a><br>
+<a href="/singup">Rejestracja</a><br>
+<a href="/logout">wylogowanie</a><br><br>
+
+<div >
+ <table class="pure-table">
+    <thead>
+      <tr>
+         <th>ID</th>
+         <th>Make</th>
+         <th>Model</th>
+         <th>Color</th>
+          <th>Year</th>
+         <th>Del</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="car: ${cars}">
+         <td id=zmienna th:text="${car.getCarId()}  "></td>
+         <td th:text="${car.getMark()}  " ></td>
+         <td th:text="${car.getModel()}  "></td>
+         <td th:text="${car.getColor()}  "></td>
+          <td th:text="${car.getYearProduction()}  "></td>
+         <td><a class="pure-button pure-button-primary" th.method="post"
+                th:href="@{/delete/{id}(id=${car.carId})}">Delete</a></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <form class="pure-form" th:action="@{/add}" th:object="${newCar}" method="post">
+         <td>   ID </td>
+         <td> <input type="text" th:field="*{mark}" placeholder="Marka" ></td>
+         <td> <input type="text" th:field="*{model}" placeholder="Model" ></td>
+         <td> <input type="text" th:field="*{color}" placeholder="Color"></td>
+         <td> <input type="text" th:field="*{yearProduction}" placeholder="Year"></td>
+         <td> <button class="pure-button pure-button-primary">add Car</button></td>
+        </form>
+      </tr>
+    </tfoot>
+ </table>
+</div>
+
+
+</body>
+</html>
