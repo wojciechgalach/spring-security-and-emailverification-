@@ -1,6 +1,6 @@
 https://spring-security-car.herokuapp.com/
 
-Spring Security - test car 
+Spring Security -  cars 
 
 1.Technology backend:
 - Java 8
