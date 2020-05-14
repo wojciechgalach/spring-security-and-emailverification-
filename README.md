@@ -6,7 +6,7 @@ Spring Security -  cars
 - Java 8
 - Spring Boot
 - Spring Security 
-- e-mail ferification
+-- e-mail ferification
  
 2.Technology for frontend:
 Thymeleaf
